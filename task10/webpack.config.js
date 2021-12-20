@@ -9,9 +9,13 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.s?css$/,
-                use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+                test: /.js$/,
+                use: ['babel-loader']
             },
+            {
+                test: /\.s?css$/i,
+                use: [MiniCssExtractPlugin.loader, "css-loader", 'sass-loader'],
+              },
             {
                 test: /.(jpg|png)$/,
                 use: [
@@ -33,7 +37,6 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css',
-
         })
     ]
 }
